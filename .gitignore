@@ -1,0 +1,6 @@
+/target/
+/.settings/
+/.classpath
+/.mvn
+/.project
+/.DS_Store
