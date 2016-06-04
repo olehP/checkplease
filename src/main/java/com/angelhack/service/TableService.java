@@ -31,5 +31,9 @@ public class TableService {
     public void addTable(Table table){
     	tableDAO.save(table);
     }
+    
+    public void updateTable(Table table){
+    	tableDAO.save(table);
+    }
 	
 }
