@@ -11,5 +11,5 @@ public interface WaiterDAO extends JpaRepository<Waiter, Integer> {
 	
 	public List<Waiter> findByRestaurant(Restaurant restaurant);
 	
-
+	Waiter findByChatId(String chatId);
 }

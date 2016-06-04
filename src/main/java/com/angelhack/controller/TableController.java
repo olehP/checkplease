@@ -16,34 +16,29 @@ import com.angelhack.service.TableService;
 
 @Controller
 public class TableController {
-	
+
 	@Autowired
-	TableService tableService;
-	
-	
-	@RequestMapping(value="/table", params = {"restaurant_id"}, method = RequestMethod.GET)
+	private TableService tableService;
+
+	@RequestMapping(value = "/table", params = { "restaurant_id" }, method = RequestMethod.GET)
 	public @ResponseBody List<Table> getTablesInJSON(@RequestParam(value = "restaurant_id") int restaurantId) {
 		return tableService.getTablesForRestaurant(restaurantId);
 	}
-	
-	
-	@RequestMapping(value="/table/{id}", method = RequestMethod.GET)
-	public @ResponseBody Table getTableInJSON(@PathVariable int id) {	
+
+	@RequestMapping(value = "/table/{id}", method = RequestMethod.GET)
+	public @ResponseBody Table getTableInJSON(@PathVariable int id) {
 		return tableService.getTableById(id);
 
 	}
-	
-	@RequestMapping(value="/table/{id}", method = RequestMethod.PUT)
-	public @ResponseBody void updateTableJSON(@RequestBody Table table){
+
+	@RequestMapping(value = "/table/{id}", method = RequestMethod.PUT)
+	public @ResponseBody void updateTableJSON(@RequestBody Table table) {
 		tableService.updateTable(table);
 	}
-	
-	@RequestMapping(value="/table/{id}", method = RequestMethod.POST)
-	public @ResponseBody void addTableJSON(@RequestBody Table table){
+
+	@RequestMapping(value = "/table/{id}", method = RequestMethod.POST)
+	public @ResponseBody void addTableJSON(@RequestBody Table table) {
 		tableService.addTable(table);
 	}
-	
-	
-	
-	
+
 }

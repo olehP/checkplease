@@ -6,4 +6,6 @@ import com.angelhack.entity.Customer;
 
 public interface CustomerDAO extends JpaRepository<Customer, Integer> {
 
+	Customer findByChatId(String chatId);
+
 }

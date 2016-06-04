@@ -14,6 +14,7 @@ public class Restaurant {
 	private String name;
 	private String description;
 	private String code;
+	private String email;
 	private String password;
 	private String numberOfTables;
 
@@ -55,6 +56,14 @@ public class Restaurant {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNumberOfTables() {
