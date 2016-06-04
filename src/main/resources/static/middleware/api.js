@@ -1,6 +1,6 @@
 const BASE_URL = 'http://localhost:3001/api/'
 
-function callApi(endpoint, authenticated) {
+export function callApi(endpoint, authenticated) {
   
   let token = localStorage.getItem('id_token') || null
   let config = {}
