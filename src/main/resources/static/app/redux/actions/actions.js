@@ -12,6 +12,24 @@ let actions = {
             val:val
         }
     },
+    restaurantAdressChanged: function(val){
+        return{
+            type:"ADRESS_OF_RESTAURANT_CHANGED",
+            val:val
+        }
+    },
+    numberOfTablesChanged: function(val){
+        return{
+            type:"NUMBERS_OF_TABLES_CHANGED",
+            val:val
+        }
+    },
+    settingsChanged: function(val){
+        return{
+            type:"SETTINGS_CHANGED",
+            val:val
+        }
+    },
 }
 
 module.exports = actions;

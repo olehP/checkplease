@@ -7,8 +7,18 @@ import TextInput from '../../components/textInput.jsx'
 
 
 var Settings = React.createClass({
-    componentDidMount:function(){
-        console.log(this.props.actions);
+    sumbitForm:function(e){
+        e.preventDefault();
+        const name = this.refs.nameOfRestaurant;
+        const adress = this.refs.adressOfRestaurant;
+        const numberOfTables = this.refs.numberOfTables;
+        const description = this.refs.description;
+        const settings = { name: name.value.trim(), 
+                           adress: adress.value.trim(),
+                          numberOfTables: numberOfTables.value.trim(),
+                          description: description.value.trim(),
+                      };
+        this.props.actions.settingsChanged(settings);
     },
     render: function() {
 
@@ -16,11 +26,11 @@ var Settings = React.createClass({
             <div className = "col-md-8 settings">
                 <h1 className = "text-center">Settings</h1>
                 <form action="">
-                    <TextInput value = {this.props.mainState.restaurant.name} onChangeAction = {this.props.actions.nameOfRestaurantChanged} className = "col-md-8 col-md-offset-2" type="text" id = "nameOfRestaurant" placeholder = "Name of the Restaurant"/>
-                    <TextInput value = {this.props.mainState.restaurant.adress} onChangeAction = {this.props.actions.restaurantAdressChanged} className = "col-md-8 col-md-offset-2" type="text" id = "adress" placeholder = "Adress" />
-                    <TextInput value = {this.props.mainState.restaurant.numberOfTables} onChangeAction = {this.props.actions.numberOfTablesChanged} className = "col-md-8 col-md-offset-2" type="text" id = "tables" placeholder = "Amount of Tables"/>
-                    <textarea defaultValue = {this.props.mainState.restaurant.description} onChange = {this.props.actions.restaurantDescriptionChanged} className = "col-md-8 col-md-offset-2" name="description" placeholder = "Short description of your restaurant" id="description" cols="30" rows="10"></textarea>
-                    <input className = "col-md-8 col-md-offset-2 submitBut" type="sumbit" id = "submit" defaultValue = "Save"/>
+                    <input ref = "nameOfRestaurant"  defaultValue = {this.props.mainState.restaurant.name} className = "col-md-8 col-md-offset-2" type="text" id = "nameOfRestaurant" placeholder = "Name of the Restaurant"/>
+            <input ref = "adressOfRestaurant" defaultValue = {this.props.mainState.restaurant.adress} onChangeAction = {this.props.actions.restaurantAdressChanged} className = "col-md-8 col-md-offset-2" type="text" id = "adress" placeholder = "Adress" />
+            <input ref = "numberOfTables" defaultValue = {this.props.mainState.restaurant.numberOfTables} onChangeAction = {this.props.actions.numberOfTablesChanged} className = "col-md-8 col-md-offset-2" type="text" id = "tables" placeholder = "Amount of Tables"/>
+                    <textarea ref = "description" defaultValue = {this.props.mainState.restaurant.description} onChange = {this.props.actions.restaurantDescriptionChanged} className = "col-md-8 col-md-offset-2" name="description" placeholder = "Short description of your restaurant" id="description" cols="30" rows="10"></textarea>
+                    <input className = "col-md-8 col-md-offset-2 submitBut" onClick = {this.sumbitForm} type="sumbit" id = "submit" defaultValue = "Save"/>
                 </form>
             </div>
 
