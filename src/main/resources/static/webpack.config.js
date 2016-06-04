@@ -4,9 +4,13 @@ var path = require('path');
 var config = {
     entry: [
         'webpack/hot/dev-server',
-        'webpack-dev-server/client?http://localhost:8080',
+        'webpack-dev-server/client?http://localhost:80',
         path.resolve(__dirname, 'app/main.js')
     ],
+    devServer: {
+    inline:true,
+    port: 80
+    },
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
