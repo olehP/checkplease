@@ -7,10 +7,21 @@ import {callApi} from '../../../middleware/api.js';
 
 
 var Settings = React.createClass({
+    onRowDelete:function(){
+      return 0; 
+    },
     render: function() {
-
+        var waiters = this.props.mainState.waiters.map(function(waiter) {
+            return (
+                    <li>
+                        <img src = "img/logo1.svg" className = "waiterPhoto"  alt=""/>
+                        <span>{waiter.firstName+" "+waiter.lastName}</span>
+                        <button className="deleteWaiter">x</button>
+                    </li>
+            );
+        });
         return (
-            <div className = "col-md-8 waiters" onClick = {callApi('waiter?restaurant_id=1',true)}>
+            <div className = "col-md-8 waiters">
             
                 {!this.props.mainState.waiters&&
                     <div className = "noWaiters">
@@ -53,35 +64,12 @@ var Settings = React.createClass({
                   </div>
                 }
                 {this.props.mainState.waiters&&
+                   
                     <div>
+                       
                         <h1 className = "text-center greenHeading">Waiters</h1>
                         <ul className = "waitersList">
-                            <li>
-                                <img src = "img/logo1.svg" className = "waiterPhoto"  alt=""/>
-                                <span>Max Gladysh</span>
-                                <button className="deleteWaiter">x</button>
-                                
-                            </li>
-                            <li>
-                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
-                                <span>Max Gladysh</span>
-                                <button className="deleteWaiter">x</button>
-                            </li>
-                            <li>
-                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
-                                <span>Max Gladysh</span>
-                                <button className="deleteWaiter">x</button>
-                            </li>
-                            <li>
-                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
-                                <span>Max Gladysh</span>
-                                <button className="deleteWaiter">x</button>
-                            </li>
-                            <li>
-                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
-                                <span>Max Gladysh</span>
-                                <button className="deleteWaiter">x</button>
-                            </li>
+                            {waiters}
                         </ul>
                     </div>}
             </div>
