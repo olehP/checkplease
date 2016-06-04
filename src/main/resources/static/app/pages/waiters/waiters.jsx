@@ -10,7 +10,7 @@ var Settings = React.createClass({
     render: function() {
 
         return (
-            <div className = "col-md-8 waiters" onClick = {callApi()}>
+            <div className = "col-md-8 waiters" onClick = {callApi('waiter?restaurant_id=1',true)}>
             
                 {!this.props.mainState.waiters&&
                     <div className = "noWaiters">

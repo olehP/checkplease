@@ -1,8 +1,9 @@
-const BASE_URL = 'http://localhost:3001/api/'
+const BASE_URL = 'http://localhost:8080/'
 
 export function callApi(endpoint, authenticated) {
   
-  let token = localStorage.getItem('id_token') || null
+ // let token = localStorage.getItem('id_token') || null
+   let token = 'testToken'
   let config = {}
   
   if(authenticated) {
@@ -15,7 +16,7 @@ export function callApi(endpoint, authenticated) {
     }
   }
   
-  return fetch(BASE_URL + endpoint, config)
+  return fetch(BASE_URL + endpoint)
     .then(response =>
       response.text()
       .then(text => ({ text, response }))
