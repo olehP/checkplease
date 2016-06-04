@@ -1,7 +1,7 @@
 import React from 'react';
 import reactDOM from 'react-dom';
 import {Link} from 'react-router';
-
+import {callApi} from '../../../middleware/api.js';
 
 //<p className = "col-md-8">Don`t make your customers wait for a waiter. Provide them with your menu and introduce the waiter for them in their favorite messenger.</p>
 
@@ -10,18 +10,80 @@ var Settings = React.createClass({
     render: function() {
 
         return (
-            <div className = "col-md-8 waiters">
-            <h1 className = "text-center greenHeading">Waiters</h1>
+            <div className = "col-md-8 waiters" onClick = {callApi()}>
+            
                 {!this.props.mainState.waiters&&
-                    <div className = "noWaiters">No waiters</div>
+                    <div className = "noWaiters">
+                        <img src="img/logo1.svg" className = "logo" alt=""/>
+                        <p className = "text-center">Oooops. It seems like you have no waiters ;(</p>
+                        <h3 className = "text-center">To add Waiters just give them this number <span className = "restaurantCode">{this.props.mainState.restaurantCode}</span></h3>
+                    </div>
                 }
-                <form action="">
-                    <input className = "col-md-8 col-md-offset-2" type="text" id = "nameOfRestaurant" placeholder = "Name of the Restaurant"/>
-                    <input className = "col-md-8 col-md-offset-2" type="text" id = "adress" placeholder = "Adress" />
-                    <input className = "col-md-8 col-md-offset-2" type="text" id = "tables" placeholder = "Amount of Tables"/>
-                    <textarea className = "col-md-8 col-md-offset-2" name="description" placeholder = "Short description of your restaurant" id="description" cols="30" rows="10"></textarea>
-                    <input className = "col-md-8 col-md-offset-2 submitBut" type="sumbit" id = "submit" value = "Save"/>
-                </form>
+                {this.props.mainState.waiterRequests&&
+                  <div>
+                    <h1 className = "text-center greenHeading">Waiter`s Requests</h1>
+                    <ul className = "waitersList">
+                        <li>
+                            <img src = "img/logo1.svg" className = "waiterPhoto"  alt=""/>
+                            <span>Max Gladysh</span>
+                            <button className="deleteWaiter">x</button>
+
+                        </li>
+                        <li>
+                            <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                            <span>Max Gladysh</span>
+                            <button className="deleteWaiter">x</button>
+                        </li>
+                        <li>
+                            <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                            <span>Max Gladysh</span>
+                            <button className="deleteWaiter">x</button>
+                        </li>
+                        <li>
+                            <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                            <span>Max Gladysh</span>
+                            <button className="deleteWaiter">x</button>
+                        </li>
+                        <li>
+                            <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                            <span>Max Gladysh</span>
+                            <button className="deleteWaiter">x</button>
+                        </li>
+                    </ul>
+                  </div>
+                }
+                {this.props.mainState.waiters&&
+                    <div>
+                        <h1 className = "text-center greenHeading">Waiters</h1>
+                        <ul className = "waitersList">
+                            <li>
+                                <img src = "img/logo1.svg" className = "waiterPhoto"  alt=""/>
+                                <span>Max Gladysh</span>
+                                <button className="deleteWaiter">x</button>
+                                
+                            </li>
+                            <li>
+                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                                <span>Max Gladysh</span>
+                                <button className="deleteWaiter">x</button>
+                            </li>
+                            <li>
+                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                                <span>Max Gladysh</span>
+                                <button className="deleteWaiter">x</button>
+                            </li>
+                            <li>
+                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                                <span>Max Gladysh</span>
+                                <button className="deleteWaiter">x</button>
+                            </li>
+                            <li>
+                                <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
+                                <span>Max Gladysh</span>
+                                <button className="deleteWaiter">x</button>
+                            </li>
+                        </ul>
+                    </div>}
             </div>
 
         )
