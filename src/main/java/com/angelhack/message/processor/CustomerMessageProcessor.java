@@ -10,7 +10,6 @@ import com.angelhack.entity.Restaurant;
 import com.angelhack.model.incomming.MessageRecieved;
 import com.angelhack.model.incomming.Messaging;
 import com.angelhack.service.CustomerService;
-import com.angelhack.service.SendMessageService;
 import com.angelhack.util.NumberUtil;
 import com.angelhack.util.Postbacks;
 
@@ -18,8 +17,6 @@ import com.angelhack.util.Postbacks;
 public class CustomerMessageProcessor {
 	@Autowired
 	private CustomerService customerService;
-	@Autowired
-	private SendMessageService sendMessageService;
 	@Autowired
 	private CustomerDAO customerDAO;
 	@Autowired
