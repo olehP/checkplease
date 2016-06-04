@@ -6,5 +6,5 @@ import com.angelhack.entity.Customer;
 import com.angelhack.entity.TableCustomer;
 
 public interface TableCustomerDAO extends JpaRepository<TableCustomer, Integer> {
-	TableCustomer fidnByCustomerAndIsActive(Customer customer, Boolean isActive);
+	TableCustomer findByCustomerAndIsActive(Customer customer, Boolean isActive);
 }

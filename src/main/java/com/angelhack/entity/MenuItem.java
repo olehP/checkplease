@@ -3,19 +3,21 @@ package com.angelhack.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "restaurant")
-public class Restaurant {
+@Table(name = "menu_item")
+public class MenuItem {
 	@Id
 	@GeneratedValue
 	private Integer id;
 	private String name;
 	private String description;
-	private String code;
-	private String email;
-	private String password;
+	private String photo;
+	private Double price;
+	@ManyToOne
+	private Restaurant restaurant;
 
 	public Integer getId() {
 		return id;
@@ -41,28 +43,28 @@ public class Restaurant {
 		this.description = description;
 	}
 
-	public String getCode() {
-		return code;
+	public String getPhoto() {
+		return photo;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
-	public String getPassword() {
-		return password;
+	public Double getPrice() {
+		return price;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
-	public String getEmail() {
-		return email;
+	public Restaurant getRestaurant() {
+		return restaurant;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 }
