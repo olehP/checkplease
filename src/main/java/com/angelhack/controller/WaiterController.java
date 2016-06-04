@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,9 +29,18 @@ public class WaiterController {
 	
 	
 	@RequestMapping(value="/waiter/{id}", method = RequestMethod.GET)
-	public @ResponseBody Waiter getWaiterInJSON(@PathVariable int id) {	
-		return waiterService.getById(id);
+	public @ResponseBody ResponseEntity<Waiter> getWaiterInJSON(@PathVariable int id) {	
+		return ResponseEntity.ok().header("Access-Control-Allow-Origin", "http://localhost").body(waiterService.getById(id));
 
+	}
+	@RequestMapping(value="/waiter/{id}", method = RequestMethod.PUT)
+	public @ResponseBody void updateWaiterJSON(@RequestBody Waiter waiter) {	
+		waiterService.updateWaiter(waiter);
+	}
+	
+	@RequestMapping(value="/waiter/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody void remoweWaiterJSON(@PathVariable int id) {	
+		waiterService.removeWaiter(id);
 	}
 	
 }

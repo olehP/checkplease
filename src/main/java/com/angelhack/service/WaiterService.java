@@ -26,5 +26,13 @@ public class WaiterService {
 		Restaurant restaurant = restaurantDAO.findOne(id);
 		return  waiterDAO.findByRestaurant(restaurant);	
 	}
+	
+	public void updateWaiter(Waiter waiter){
+		waiterDAO.save(waiter);
+	}
+	
+	public void removeWaiter(int id){
+		waiterDAO.delete(id);
+	}
 
 }

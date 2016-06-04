@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +31,16 @@ public class TableController {
 	public @ResponseBody Table getTableInJSON(@PathVariable int id) {	
 		return tableService.getTableById(id);
 
+	}
+	
+	@RequestMapping(value="/table/{id}", method = RequestMethod.PUT)
+	public @ResponseBody void updateTableJSON(@RequestBody Table table){
+		tableService.updateTable(table);
+	}
+	
+	@RequestMapping(value="/table/{id}", method = RequestMethod.POST)
+	public @ResponseBody void addTableJSON(@RequestBody Table table){
+		tableService.addTable(table);
 	}
 	
 	

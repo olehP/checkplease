@@ -19,5 +19,9 @@ public class RestaurantService {
 		restaurantDAO.save(restaurant);		
 	}
 	
+	public void updateRestaurant(Restaurant restaurant){
+		restaurantDAO.save(restaurant);		
+	}
+	
 
 }
