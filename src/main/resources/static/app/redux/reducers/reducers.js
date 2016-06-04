@@ -29,8 +29,19 @@ let reducer = function (state = initialState, action) {
                })                     
              })
            });
-      case 'REASON_OF_STAYING_CHANGED':
-          var res = {mainState:{restaurant:{name:action.val}}};
+      case 'ADRESS_OF_RESTAURANT_CHANGED':
+          var res = {mainState:{restaurant:{adress:action.val}}};
+           return objectAssign({},state,res);
+      case 'NUMBERS_OF_TABLES_CHANGED':
+          var res = {mainState:{restaurant:{numberOfTables:action.val}}};
+           return objectAssign({},state,res);
+      case 'SETTINGS_CHANGED':
+          var res = {mainState:{restaurant:{
+              numberOfTables:action.val.numberOfTables,
+              adress:action.val.adress,
+              description:action.val.description,
+              name:action.val.name,
+          }}};
            return objectAssign({},state,res);
           
           //Authentification reducer

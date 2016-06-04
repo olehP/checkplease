@@ -30,7 +30,8 @@ var initialState = {
             description:"",
             code:"",
             password:"",
-            numberOfTables:0
+            numberOfTables:0,
+            adress:""
         },
         waiters:[{
             id: 0,
