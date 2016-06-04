@@ -13,7 +13,7 @@ public class MessengerController {
 
 	@RequestMapping(value = "customer/message", method = RequestMethod.POST)
 	private void customerMessaeg(@RequestBody(required = false) MessageRecieved messageRecieved) {
-		// TODO: add message processing
+		System.out.println(messageRecieved.getEntry().get(0).getId());
 	}
 
 	@RequestMapping(value = "customer/message", method = RequestMethod.GET)
@@ -23,7 +23,7 @@ public class MessengerController {
 
 	@RequestMapping(value = "admin/message", method = RequestMethod.POST)
 	private void adminMessage(@RequestBody(required = false) MessageRecieved messageRecieved) {
-		// TODO: add message processing
+		System.out.println(messageRecieved.getEntry().get(0).getId());
 	}
 
 	@RequestMapping(value = "admin/message", method = RequestMethod.GET)
