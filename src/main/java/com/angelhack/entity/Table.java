@@ -14,6 +14,8 @@ public class Table {
 	private Integer number;
 	@ManyToOne
 	private Restaurant restaurant;
+	@ManyToOne
+	private Waiter waiter;
 
 	public Integer getId() {
 		return id;
@@ -37,6 +39,14 @@ public class Table {
 
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
+	}
+
+	public Waiter getWaiter() {
+		return waiter;
+	}
+
+	public void setWaiter(Waiter waiter) {
+		this.waiter = waiter;
 	}
 
 }
