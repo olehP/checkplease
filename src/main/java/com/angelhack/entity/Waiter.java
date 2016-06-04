@@ -19,8 +19,10 @@ public class Waiter {
 	private String lastName;
 	@Column(name = "chat_id")
 	private String chatId;
-	@Column(name = "at_work")
-	private Boolean atWork;
+	@Column(name = "is_active")
+	private Boolean isActive;
+	@Column(name = "profile_pic")
+	private String profilePic;
 	@ManyToOne
 	private Restaurant restaurant;
 
@@ -56,12 +58,12 @@ public class Waiter {
 		this.chatId = chatId;
 	}
 
-	public Boolean getAtWork() {
-		return atWork;
+	public Boolean getIsActive() {
+		return isActive;
 	}
 
-	public void setAtWork(Boolean atWork) {
-		this.atWork = atWork;
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public Restaurant getRestaurant() {
@@ -70,6 +72,14 @@ public class Waiter {
 
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
+	}
+
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
 	}
 
 }

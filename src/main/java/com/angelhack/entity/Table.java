@@ -40,7 +40,6 @@ public class Table {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	
 
 	public Waiter getWaiter() {
 		return waiter;

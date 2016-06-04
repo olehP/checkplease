@@ -19,27 +19,42 @@ import com.angelhack.model.outgoing.simple.SimpleMessageRequest;
 public class SendMessageService {
 	@Value("${facebook.messaging.url}")
 	private String MESSAGING_URL;
+	@Value("${facebook.messaging.token.customer}")
+	private String customerToken;
+	@Value("${facebook.messaging.token.admin}")
+	private String adminToken;
 	@Autowired
 	private RestTemplate restTemplate;
 
-	public void sendSimpleMessage(UserId recipient, String text) {
+	public void sendSimpleMessage(UserId recipient, String text, boolean isCustomer) {
 		SimpleMessageRequest request = new SimpleMessageRequest();
 		request.setRecipient(recipient);
 		SimpleMessage message = new SimpleMessage();
 		message.setText(text);
 		request.setMessage(message);
-		restTemplate.postForObject(MESSAGING_URL, request, String.class);
+
+		restTemplate.postForObject(getUrl(isCustomer), request, String.class);
 	}
 
-	public void sendGenericMessages(UserId recipient, List<MessageElement> elements) {
+	private String getUrl(boolean isCustomer) {
+		String url = MESSAGING_URL;
+		if (isCustomer) {
+			url += customerToken;
+		} else {
+			url += adminToken;
+		}
+		return url;
+	}
+
+	public void sendGenericMessages(UserId recipient, List<MessageElement> elements, boolean isCustomer) {
 		MessageRequest messageRequest = MessageRequest.getBuilder().elements(elements).recipient(recipient).build();
-		restTemplate.postForObject(MESSAGING_URL, messageRequest, String.class);
+		restTemplate.postForObject(getUrl(isCustomer), messageRequest, String.class);
 	}
 
-	public void sendButtonsMessage(UserId recipient, List<Button> buttons, String text) {
+	public void sendButtonsMessage(UserId recipient, List<Button> buttons, String text, boolean isCustomer) {
 		ButtomTemplateRequest request = ButtomTemplateRequest.getBuilder().buttons(buttons).text(text)
 				.recipient(recipient).build();
-		restTemplate.postForObject(MESSAGING_URL, request, String.class);
+		restTemplate.postForObject(getUrl(isCustomer), request, String.class);
 
 	}
 
