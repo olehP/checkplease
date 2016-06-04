@@ -38,5 +38,6 @@ public class Table {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
+	
 
 }
