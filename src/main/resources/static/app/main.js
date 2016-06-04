@@ -13,9 +13,9 @@ import Landing from './containers/landing/Landing.jsx';
 import Main from './containers/MainComponent/MainComponent.jsx';
 import Settings from './pages/settings/settingsPage.jsx';
 import Waiters from './pages/waiters/waiters.jsx';
+import Tables from './pages/tables/tablesPage.jsx';
 
-var formSteps = ['Eligibility','Personal','Personal/Citizenship','Personal/Other',"Disablilities",'Contact','Residence','Parents','BiographicInformation','EmploymentAndSchools','TimeOutsideTheUnitedStates','MaritalHistory','MaritalHistory/Spouse','MaritalHistory/Previous','MaritalHistory/YourPrevious','Children','Additional','Preparers'];
-let formStepsNames = ['Eligibility','Personal','Citizenship','Other','Disabilities and/or Impairments','Contact','Residence','Parents','Biographic Information','Employment And Schools','Time Outside The United States','Marital History','Spouse','Previous','YourPrevious','Children','Additional','Preparers']
+
 var initialState = {
     //userAuthentification
     user:null,
@@ -23,11 +23,34 @@ var initialState = {
     isAuthenticated: false,
     id_token: null,
     errorMessage:"",
-    completedSteps:1,
-    formSteps:formSteps,
-    activeFormStep:0,
     mainState:{
-        waiters:null
+        restaurant:{
+            id:null,
+            name:"",
+            description:"",
+            code:"",
+            password:"",
+            numberOfTables:0
+        },
+        waiters:[{
+            id: 0,
+            firstName: 'Max',
+            lastName:'Gladysh',
+            chatId:null,
+            atWork:true,    
+        },{
+            id: 1,
+            firstName: 'Nazar',
+            lastName:'Hembara',
+            chatId:null,
+            atWork:true,    
+        },],
+        tables:[{
+            id:"",
+            number:"",
+            restaurant:"",
+            waiter:{},
+        }]
     }
     
 };
@@ -38,6 +61,7 @@ var routes = <Route name="Main" path="/" component={App} history={hashHistory}>
                 <Route name = "main" path = "main" component = {Main}>
                     <Route name = "welcome" path = "settings" component = {Settings}/>
                     <Route name = "welcome" path = "waiters" component = {Waiters}/>
+                    <Route name = "welcome" path = "tables" component = {Tables}/>
                 </Route>
                 
             </Route>

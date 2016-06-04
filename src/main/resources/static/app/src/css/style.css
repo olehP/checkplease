@@ -17,6 +17,7 @@ a:focus {
 
 ul {
     margin-bottom: 0px;
+    list-style: none;
 }
 
 #myPills.navbar-nav>li>a {
@@ -927,4 +928,57 @@ textarea {
     font-size: 40px;
     color: #43c448;
     margin-bottom: 30px;
+}
+.noWaiters{
+    padding-top: 160px;
+}
+.restaurantCode{
+    background: #71d659;
+}
+.waiters, .tables{
+    margin-top: 30px;
+}
+.waitersList li{
+    border: 1px solid #d6d6d6;
+    margin: 5px 0;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.table{
+    border: 1px solid #d6d6d6;
+    margin: 5px 0;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.waiterPhoto{
+    width:60px;
+    height: 60px;
+    margin-left: 20px;
+}
+.waitersList button{
+    float: right;
+    margin-right: 30px;
+    color: #f22d2d;
+    display: block;
+    border: none;
+    background: none;
+    font-size: 30px;
+    margin-top: 10px;
+}
+.waitersList span{
+    font-size: 15px;
+    padding-left: 30px;
+}
+.tableNumber{
+    font-size: 40px;
+    display: block;
+    padding-top: 20px;    
+}
+.tableCode{
+    font-size: 20px;
+    color: #bebebe;
+}
+.table .Select{
+    margin-top: 10px;
+    margin-bottom: 20px;
 }

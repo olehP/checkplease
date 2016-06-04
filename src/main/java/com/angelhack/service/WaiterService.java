@@ -1,9 +1,13 @@
 package com.angelhack.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.angelhack.dao.RestaurantDAO;
 import com.angelhack.dao.WaiterDAO;
+import com.angelhack.entity.Restaurant;
 import com.angelhack.entity.Waiter;
 import com.angelhack.model.UserId;
 import com.angelhack.model.incomming.User;
@@ -12,6 +16,8 @@ import com.angelhack.model.incomming.User;
 public class WaiterService {
 	@Autowired
 	private WaiterDAO waiterDAO;
+	@Autowired
+	private RestaurantDAO restaurantDAO;
 	@Autowired
 	private MessengerService messengerService;
 	@Autowired
@@ -32,4 +38,23 @@ public class WaiterService {
 		}
 		return false;
 	}
+
+	public Waiter getById(int id) {
+		return waiterDAO.findOne(id);
+	}
+
+	public List<Waiter> getByRestaurantId(int id) {
+
+		Restaurant restaurant = restaurantDAO.findOne(id);
+		return waiterDAO.findByRestaurant(restaurant);
+	}
+
+	public void updateWaiter(Waiter waiter) {
+		waiterDAO.save(waiter);
+	}
+
+	public void removeWaiter(int id) {
+		waiterDAO.delete(id);
+	}
+
 }

@@ -16,6 +16,7 @@ public class Restaurant {
 	private String code;
 	private String email;
 	private String password;
+	private String numberOfTables;
 
 	public Integer getId() {
 		return id;
@@ -64,5 +65,14 @@ public class Restaurant {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public String getNumberOfTables() {
+		return numberOfTables;
+	}
+
+	public void setNumberOfTables(String numberOfTables) {
+		this.numberOfTables = numberOfTables;
+	}
+
 
 }
