@@ -111,5 +111,7 @@ public class CustomerService {
 	public void sendMenuItemOrder(Customer customer, int menuItemId) {
 		MenuItem menuItem = menuItemDAO.findOne(menuItemId);
 		writeToWaiter(customer, menuItem.getName());
+		sendMessageService.sendSimpleMessage(new UserId(customer.getChatId()), "Your order was sent to the waiter",
+				true);
 	}
 }
