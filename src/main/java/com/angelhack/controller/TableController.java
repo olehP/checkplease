@@ -21,8 +21,8 @@ public class TableController {
 	TableService tableService;
 	
 	
-	@RequestMapping(value="/tables", params = {"restaurant_id"}, method = RequestMethod.GET)
-	public @ResponseBody List<Table> getTablesInJSON(@RequestParam(value = "restaurant") int restaurantId) {
+	@RequestMapping(value="/table", params = {"restaurant_id"}, method = RequestMethod.GET)
+	public @ResponseBody List<Table> getTablesInJSON(@RequestParam(value = "restaurant_id") int restaurantId) {
 		return tableService.getTablesForRestaurant(restaurantId);
 	}
 	
