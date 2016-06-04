@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-@javax.persistence.Table(name = "table")
+@javax.persistence.Table(name = "tables")
 public class Table {
 	@Id
 	@GeneratedValue

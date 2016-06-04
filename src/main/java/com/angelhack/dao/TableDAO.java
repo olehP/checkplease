@@ -4,14 +4,15 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.angelhack.entity.Restaurant;
 import com.angelhack.entity.Table;
 
 public interface TableDAO extends JpaRepository<Table, Integer> {
 
 	
-	public List<Table>getTableByRestaurant(int restaurantId);
+	public List<Table> findByRestaurant(Restaurant restaurant);
 	
-	public Table getTableById(int tableId);
+	public Table findById(Integer tableId);
 	
 	
 }
