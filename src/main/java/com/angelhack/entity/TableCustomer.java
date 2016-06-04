@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.angelhack.converter.LocalDateTimeConverter;
+
 @Entity
 @javax.persistence.Table(name = "table_customer")
 public class TableCustomer {
@@ -17,7 +19,7 @@ public class TableCustomer {
 	private Integer id;
 
 	@Column(name = "came_time")
-	@Convert(converter = LocalDateTime.class)
+	@Convert(converter = LocalDateTimeConverter.class)
 	private LocalDateTime cameTime;
 	@Column(name = "is_active")
 	private Boolean isActive;
