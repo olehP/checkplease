@@ -17,6 +17,8 @@ public class Restaurant {
 	private String email;
 	private String password;
 	private String numberOfTables;
+	private String address;
+	private String photo;
 
 	public Integer getId() {
 		return id;
@@ -74,5 +76,20 @@ public class Restaurant {
 		this.numberOfTables = numberOfTables;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
 
 }
