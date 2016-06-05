@@ -30,6 +30,12 @@ let actions = {
             val:val
         }
     },
+    deleteWaiter: function(val){
+        return{
+            type:"DELETE_WAITER",
+            val:val
+        }
+    },
 }
 
 module.exports = actions;

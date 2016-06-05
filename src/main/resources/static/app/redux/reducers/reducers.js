@@ -35,15 +35,31 @@ let reducer = function (state = initialState, action) {
       case 'NUMBERS_OF_TABLES_CHANGED':
           var res = {mainState:{restaurant:{numberOfTables:action.val}}};
            return objectAssign({},state,res);
+      case 'DELETE_WAITER':
+          var waiters = state.mainState.waiters;
+          console.log(action.val.id);
       case 'SETTINGS_CHANGED':
+          var tablesMas = [];
+          for(var i = 1;i<=action.val.numberOfTables;i++){
+              var table = {
+                  id:"",
+                  number:"",
+                  restaurant:"",
+                  waiter:{},
+              };
+              table.id=i;
+              table.tableNumber = 'AAREST0'+i;
+              tablesMas.push(table);
+          };
           var res = {mainState:{restaurant:{
               numberOfTables:action.val.numberOfTables,
               adress:action.val.adress,
               description:action.val.description,
               name:action.val.name,
-          }}};
+          }, tables:tablesMas}};
            return objectAssign({},state,res);
           
+     
           //Authentification reducer
         case "LOGIN_REQUEST":
           return Object.assign({}, state, {

@@ -40,6 +40,10 @@ h2{
 #loginBut{
     border: 2px solid #2db236;
     color: #2db236;
+    padding: 10px 12px;
+    margin-top: 20px;
+    border-radius: 7px;
+    text-align: center;
 /*    #ed9c58*/
     background: white;
     box-shadow: 6px 7px 13px -2px rgba(34,214,76,0.48);

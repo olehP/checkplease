@@ -7,16 +7,16 @@ import {callApi} from '../../../middleware/api.js';
 
 
 var Settings = React.createClass({
-    onRowDelete:function(){
-      return 0; 
+    onRowDelete:function(waiter){
+      this.props.actions.deleteWaiter(waiter.id)
     },
     render: function() {
         var waiters = this.props.mainState.waiters.map(function(waiter) {
             return (
                     <li>
-                        <img src = "img/logo1.svg" className = "waiterPhoto"  alt=""/>
+                        <img src = {waiter.img} className = "waiterPhoto"  alt=""/>
                         <span>{waiter.firstName+" "+waiter.lastName}</span>
-                        <button className="deleteWaiter">x</button>
+                        <button className="deleteWaiter" id = {waiter.id}>x</button>
                     </li>
             );
         });
