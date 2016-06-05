@@ -12,6 +12,7 @@ import com.angelhack.model.incomming.MessageRecieved;
 import com.angelhack.model.incomming.Messaging;
 import com.angelhack.service.SendMessageService;
 import com.angelhack.service.WaiterService;
+import com.angelhack.util.Postbacks;
 
 @Service
 public class AdminMessageProcessor {
@@ -31,8 +32,18 @@ public class AdminMessageProcessor {
 			if (messaging.getMessage() != null && messaging.getMessage().getText() != null) {
 				processTextMessage(messaging.getMessage().getText(), waiter);
 			} else if (messaging.getPostback() != null && messaging.getPostback().getPayload() != null) {
-				// processPayload(user, messaging.getPostback().getPayload());
+				processPayload(waiter, messaging.getPostback().getPayload());
 			}
+		}
+	}
+
+	private void processPayload(Waiter waiter, String payload) {
+		if (payload.startsWith(Postbacks.ADMIN_CONFIRM)) {
+			int orderId = Integer.parseInt(payload.substring(payload.indexOf('_') + 1));
+			waiterService.confirmOrder(orderId);
+		} else if (payload.startsWith(Postbacks.ADMIN_REJECT)) {
+			int orderId = Integer.parseInt(payload.substring(payload.indexOf('_') + 1));
+			waiterService.rejectOrder(orderId);
 		}
 	}
 
