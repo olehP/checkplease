@@ -9,6 +9,7 @@ import com.angelhack.dao.CustomerDAO;
 import com.angelhack.dao.MenuItemDAO;
 import com.angelhack.dao.TableCustomerDAO;
 import com.angelhack.dao.TableDAO;
+import com.angelhack.entity.ChatState;
 import com.angelhack.entity.Customer;
 import com.angelhack.entity.MenuItem;
 import com.angelhack.entity.Restaurant;
@@ -42,6 +43,7 @@ public class CustomerService {
 			User user = messengerService.getProfileInfo(chatId.getId(), true);
 			customer.setFirstName(user.getFirstName());
 			customer.setLastName(user.getLastName());
+			customer.setState(ChatState.ANY);
 			customerDAO.save(customer);
 			sendMessageService.sendSimpleMessage(chatId, "Welcome to CheckPlease", true);
 			return true;

@@ -19,6 +19,92 @@ ul {
     margin-bottom: 0px;
     list-style: none;
 }
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+@MaxGladysh
+    Watch 16
+    Star 164
+    Fork 86 ubilabs/react-geosuggest
+    Code  Issues 6  Pull requests 4  Pulse  Graphs
+    Branch: master Find file Copy pathreact-geosuggest/src/geosuggest.css
+    412519b  on 16 Feb 2015
+    @ro-ka ro-ka chore(all): initial release
+    1 contributor
+    RawBlameHistory     69 lines (67 sloc)  1.29 KB
+    /**
+    * The geosuggest module
+    */
+    .geosuggest {
+        font-size: 18px;
+        font-size: 1rem;
+        position: relative;
+        width: 50%;
+        margin: 1em auto;
+        text-align: left;
+}
+.geosuggest__input {
+    border: 2px solid transparent;
+    box-shadow: 0 0 1px #3d464d;
+    padding: .5em 1em;
+    -webkit-transition: border 0.2s, box-shadow 0.2s;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+.geosuggest__input:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 transparent;
+}
+.geosuggest__suggests {
+    position: absolute;
+    top: 54%;
+    left: 0;
+    right: 0;
+    width: 601px;
+    margin-left: 165px;
+    max-height: 25em;
+    padding: 0;
+    margin-top: -1px;
+    background: #fff;
+    border: 1px solid #d1d1d1;
+    border-top-width: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    list-style: none;
+    z-index: 5;
+    -webkit-transition: max-height 0.2s, border 0.2s;
+    transition: max-height 0.2s, border 0.2s;
+}
+.geosuggest__suggests--hidden {
+    max-height: 0;
+    overflow: hidden;
+    border-width: 0;
+}
+.Select-menu-outer{
+    width: 86%! important;
+}
+/**
+* A geosuggest item
+*/
+.geosuggest-item {
+    font-size: 14px;
+    padding: 12px 10px;
+    cursor: pointer;
+}
+.geosuggest-item:hover,
+.geosuggest-item:focus {
+    background: #f5f5f5;
+}
+.geosuggest-item--active {
+    background: #267dc0;
+    color: #fff;
+}
+.geosuggest-item--active:hover,
+.geosuggest-item--active:focus {
+    background: #ccc;
+}
 
 #myPills.navbar-nav>li>a {
     padding: 5px;
@@ -903,6 +989,7 @@ textarea {
 .nav{
     background: #f4f4f4;
     height: 100vh;
+    min-height: 100%;
     margin-left: 15px;
 }
 .nav .logo{
@@ -915,6 +1002,15 @@ textarea {
     padding: 20px;
     font-size: 17px;
     color:#32C73C;
+}
+.menu h4{
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.menu p{
+    font-size: 14px;
+    color: gray;
 }
 .settings{
     margin-top: 70px;
@@ -937,6 +1033,17 @@ textarea {
 }
 .waiters, .tables{
     margin-top: 30px;
+}
+.menu .price{
+    color: #e88f36;
+    font-size: 19px;
+}
+.menu button{
+    border: none;
+    background: none;
+}
+.menu button>img{
+    width: 15px;
 }
 .waitersList li{
     border: 1px solid #d6d6d6;

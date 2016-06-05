@@ -1,42 +1,14 @@
 import React from 'react';
 import reactDOM from 'react-dom';
-import SignupForm from './Signup.jsx'
+import SignupForm from './Signup.jsx';
+import {Link} from 'react-router';
 
 
-function loginUser(creds) {
-  let config = {
-    method: 'POST',
-    headers: { 'Content-Type':'application/x-www-form-urlencoded' },
-    body: `username=${creds.username}&password=${creds.password}`
-  }
- this.props.actions.requestLogin(creds);
-    // We dispatch requestLogin to kickoff the call to the API
-      this.props.actions.requestLogin(creds);
-      console.log(creds)
-//      this.props.actions.receiveLogin(creds);
-      localStorage.setItem('id_token', creds.client_id)
-      
-    return fetch('http://localhost:3001/sessions/create', config)
-      .then(response =>
-        response.json().then(user => ({ user, response }))
-            ).then(({ user, response }) =>  {
-        if (!response.ok) {
-          // If there was a problem, we want to
-          // dispatch the error condition
-          this.props.actions.loginError(user.message)
-          return Promise.reject(user)
-        } else {
-          // If login was successful, set the token in local storage
-          localStorage.setItem('id_token', user.client_id)
-          // Dispatch the success action
-         receiveLogin(user)
-        }
-      }).catch(err => console.log("Error: ",Promise.reject+ err))
-  
-};
+
 
 var ForgotPassword = React.createClass({ 
     handleLogin:function(event){
+        var t = event.target;
        event.preventDefault();
         const username = this.refs.username;
         const password = this.refs.password;
@@ -51,12 +23,9 @@ var ForgotPassword = React.createClass({
             body: `username=${creds.username}&password=${creds.password}`
           }
     // We dispatch requestLogin to kickoff the call to the API
-      this.props.actions.requestLogin(creds);
-      console.log(creds);
         if(creds.username =="max.gladysh@gmail.com"&&creds.password=="11111111"){
-            this.props.actions.receiveLogin(creds);
+            window.location = 'http://localhost/#/main/settings';
             localStorage.setItem('id_token', creds.client_id);
-             $("#modal").slideUp();
         }
         else{
             $('.error').remove();
@@ -102,7 +71,7 @@ var ForgotPassword = React.createClass({
                                       <input className = "col-md-8 col-md-offset-2" ref = 'password' id = "password" type = "password" placeholder = "Password"/>
 
                                       <a href = "#" onClick = {this.forgotPasswordClick} className = "col-md-8 col-md-offset-2">Forgot your password?</a>
-                                        <input className = "col-md-offset-2 col-md-8" id = "loginBut" type = "submit" value = "LOGIN"/>
+                                        <Link to = "main/settings" className = "col-md-offset-2 col-md-8" onClick = {this.handleLogin} id = "loginBut" >LOGIN</Link>
                                     </div>
 
                                   </form>

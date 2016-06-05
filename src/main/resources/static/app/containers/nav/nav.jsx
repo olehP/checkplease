@@ -11,7 +11,7 @@ var Nav = React.createClass({
     render: function() {
 
         return (
-            <div className = {this.props.className + " nav"}>
+            <div className = {this.props.className + " nav"} >
                 <img src="img/logoGreen.svg" className = "logo" alt=""/>
                 <p className="checkPlease col-md-12 text-center"><span>CHECK, PLEASE!</span></p>
                 <Link to = "main/menu">Menu</Link>

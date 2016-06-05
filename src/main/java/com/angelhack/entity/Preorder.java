@@ -17,6 +17,8 @@ public class Preorder {
 	private Integer id;
 	@Column(name = "is_active")
 	private Boolean isActive;
+	@Column(name = "comment")
+	private String comment;
 	@ManyToOne
 	private Customer customer;
 	@ManyToOne
@@ -62,6 +64,14 @@ public class Preorder {
 
 	public void setItems(List<MenuItem> items) {
 		this.items = items;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 }
