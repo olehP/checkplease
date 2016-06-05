@@ -12,6 +12,7 @@ var MainComponent = React.createClass({
 
         return (
             <div className = "main row">
+                <div id = "saveBlock">Saved!</div>
                <Nav className = "col-md-3"/>
                 {this.props.children&&React.cloneElement(this.props.children, {
                     actions:this.props.actions,

@@ -23,7 +23,7 @@ var ForgotPassword = React.createClass({
             body: `username=${creds.username}&password=${creds.password}`
           }
     // We dispatch requestLogin to kickoff the call to the API
-        if(creds.username =="max.gladysh@gmail.com"&&creds.password=="11111111"){
+        if(creds.username =="max.gladysh@gmail.com"&&creds.password=="1"){
             window.location = 'http://localhost/#/main/settings';
             localStorage.setItem('id_token', creds.client_id);
         }
@@ -64,7 +64,7 @@ var ForgotPassword = React.createClass({
         return (
             <div className = "col-md-5 landingForm">
                 <img src="img/logo.svg" alt="" className = "logo"/>
-                <form  method = "post" id  = "loginForm" className = "active">
+                <form  id  = "loginForm" className = "active">
                                     <div className="modal-body">
 
                                       <input className = "col-md-8 col-md-offset-2" ref = 'username' id = "username" type = "email" placeholder = "Email"/>

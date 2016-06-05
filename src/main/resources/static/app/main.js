@@ -27,11 +27,11 @@ var initialState = {
     mainState:{
         restaurant:{
             id:null,
-            name:"Celentano",
+            name:"Burger joint",
             description:"",
             code:"",
             password:"",
-            numberOfTables:0,
+            numberOfTables:"",
             adress:""
         },
         waiters:[{

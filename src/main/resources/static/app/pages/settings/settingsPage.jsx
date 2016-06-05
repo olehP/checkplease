@@ -15,6 +15,9 @@ var Settings = React.createClass({
         const adress = $('#adress').val();
         const numberOfTables = this.refs.numberOfTables;
         const description = this.refs.description;
+        $('#saveBlock').animate({"right": '10'},1000);
+        var func = $('#saveBlock').animate({"right": '-599'},2000);
+        setTimeout(func, 7000);   
         const settings = { name: name.value.trim(), 
                            adress: adress,
                           numberOfTables: numberOfTables.value.trim(),

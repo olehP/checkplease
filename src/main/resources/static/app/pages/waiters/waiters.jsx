@@ -16,7 +16,9 @@ var Settings = React.createClass({
                     <li>
                         <img src = {waiter.img} className = "waiterPhoto"  alt=""/>
                         <span>{waiter.firstName+" "+waiter.lastName}</span>
-                        <button className="deleteWaiter" id = {waiter.id}>x</button>
+                        <img style = {{width:'20px',float:'right',margin:'16px 10px',marginRight:'30px', cursor:"pointer"}} src="img/delete.svg" alt=""/>
+                    <img style = {{width:'20px',float:'right',margin:'16px 10px',cursor:"pointer"}} src="img/edit.svg" alt=""/>
+                        
                     </li>
             );
         });
@@ -37,28 +39,28 @@ var Settings = React.createClass({
                         <li>
                             <img src = "img/logo1.svg" className = "waiterPhoto"  alt=""/>
                             <span>Max Gladysh</span>
-                            <button className="deleteWaiter">x</button>
+                            <img src="img/edit.svg" alt=""/><img src="img/delete.svg" alt=""/>
 
                         </li>
                         <li>
                             <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
                             <span>Max Gladysh</span>
-                            <button className="deleteWaiter">x</button>
+                            <img src="img/edit.svg" alt=""/><img src="img/delete.svg" alt=""/>
                         </li>
                         <li>
                             <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
                             <span>Max Gladysh</span>
-                            <button className="deleteWaiter">x</button>
+                            <img src="img/edit.svg" alt=""/><img src="img/delete.svg" alt=""/>
                         </li>
                         <li>
                             <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
                             <span>Max Gladysh</span>
-                            <button className="deleteWaiter">x</button>
+                            <img src="img/edit.svg" alt=""/><img src="img/delete.svg" alt=""/>
                         </li>
                         <li>
                             <img src = "img/logo1.svg" alt="" className = "waiterPhoto"/>
                             <span>Max Gladysh</span>
-                            <button className="deleteWaiter">x</button>
+                            <img src="img/edit.svg" alt=""/><img src="img/delete.svg" alt=""/>
                         </li>
                     </ul>
                   </div>

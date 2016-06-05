@@ -76,6 +76,7 @@ var Landing = React.createClass({
 
         return (
             <div className = "landing row">
+                
                  <div className="col-md-7 info">
                      <h1 id = "landingHeading">CHECK, PLEASE!</h1>                     
                      <a href="#" className = "approveBut" id = "regBut" onClick = {this.showSignup}>Register now!</a>
