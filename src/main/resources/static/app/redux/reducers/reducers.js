@@ -56,7 +56,7 @@ let reducer = function (state = initialState, action) {
               adress:action.val.adress,
               description:action.val.description,
               name:action.val.name,
-          }, tables:tablesMas}};
+          },tables:tablesMas}}
            return objectAssign({},state,res);
           
      

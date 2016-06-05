@@ -20,7 +20,11 @@ var Settings = React.createClass({
                           numberOfTables: numberOfTables.value.trim(),
                           description: description.value.trim(),
                       };
+         
         this.props.actions.settingsChanged(settings);
+       
+
+
     },
     render: function() {
 
