@@ -10,6 +10,7 @@ import com.angelhack.entity.Restaurant;
 import com.angelhack.model.incomming.MessageRecieved;
 import com.angelhack.model.incomming.Messaging;
 import com.angelhack.service.CustomerService;
+import com.angelhack.service.RestaurantService;
 import com.angelhack.util.NumberUtil;
 import com.angelhack.util.Postbacks;
 
@@ -17,6 +18,8 @@ import com.angelhack.util.Postbacks;
 public class CustomerMessageProcessor {
 	@Autowired
 	private CustomerService customerService;
+	@Autowired
+	private RestaurantService restaurantService;
 	@Autowired
 	private CustomerDAO customerDAO;
 	@Autowired
@@ -41,9 +44,15 @@ public class CustomerMessageProcessor {
 		} else if (payload.startsWith(Postbacks.ORDER)) {
 			int menuItemId = Integer.parseInt(payload.substring(payload.indexOf('_') + 1));
 			customerService.sendMenuItemOrder(customer, menuItemId);
-		} else if (payload.startsWith(Postbacks.NEXTDISHES)) {
-			int nexPage = Integer.parseInt(payload.substring(payload.indexOf('_') + 1));
-			customerService.showMenu(customer, nexPage);
+		} else if (payload.startsWith(Postbacks.NEXTRESTAURANTS)) {
+			int nextPage = Integer.parseInt(payload.substring(payload.indexOf('_') + 1));
+			restaurantService.showRestaurants(customer, nextPage);
+		} else if (payload.startsWith(Postbacks.MENU)) {
+			int restaurantId = Integer.parseInt(payload.substring(payload.indexOf('_') + 1));
+			restaurantService.showMenuCategories(restaurantId, customer);
+		} else if (payload.startsWith(Postbacks.DISHES)) {
+			int categoryId = Integer.parseInt(payload.substring(payload.indexOf('_') + 1));
+			restaurantService.showDishes(categoryId, customer);
 		}
 	}
 
@@ -54,8 +63,8 @@ public class CustomerMessageProcessor {
 			if (restaurant != null && tableNumber != null) {
 				customerService.addCustomerToTable(restaurant, customer, tableNumber);
 			}
-		} else if (text.equalsIgnoreCase("menu")) {
-			customerService.showMenu(customer, 0);
+		} else if (text.equalsIgnoreCase("restaurants")) {
+			restaurantService.showRestaurants(customer, 0);
 		} else {
 			customerService.writeToWaiter(customer, text);
 		}

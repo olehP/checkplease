@@ -1,10 +1,8 @@
 package com.angelhack.service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.angelhack.dao.CustomerDAO;
@@ -18,7 +16,6 @@ import com.angelhack.entity.Table;
 import com.angelhack.entity.TableCustomer;
 import com.angelhack.model.UserId;
 import com.angelhack.model.incomming.User;
-import com.angelhack.util.ToMessageElementTransformator;
 
 @Service
 public class CustomerService {
@@ -35,7 +32,7 @@ public class CustomerService {
 	@Autowired
 	private MessengerService messengerService;
 
-	private static final int LIMIT = 3;
+	public static final int LIMIT = 3;
 
 	public boolean createIfNotExist(UserId chatId) {
 		Customer customer = customerDAO.findByChatId(chatId.getId());
@@ -86,20 +83,6 @@ public class CustomerService {
 		} else {
 			sendMessageService.sendSimpleMessage(customerId,
 					"Sorry, but you should send us the code of your table for comunicating with your waiter", true);
-		}
-	}
-
-	public void showMenu(Customer customer, int page) {
-		TableCustomer tableCustomer = tableCustomerDAO.findByCustomerAndIsActive(customer, true);
-		UserId customerId = new UserId(customer.getChatId());
-		if (tableCustomer == null) { // TODO: change message
-			sendMessageService.sendSimpleMessage(customerId, "Please send us the table code.", true);
-		} else {
-			PageRequest pageRequest = new PageRequest(page, LIMIT);
-			List<MenuItem> menuItems = menuItemDAO.findByRestaurant(tableCustomer.getTable().getRestaurant(),
-					pageRequest);
-			sendMessageService.sendGenericMessages(customerId,
-					ToMessageElementTransformator.transformMenuItem(menuItems, LIMIT, ++page), true);
 		}
 	}
 

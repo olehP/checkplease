@@ -7,17 +7,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "menu_item")
-public class MenuItem {
+@Table(name = "menu_category")
+public class MenuCategory {
 	@Id
 	@GeneratedValue
 	private Integer id;
 	private String name;
-	private String description;
 	private String photo;
-	private Double price;
 	@ManyToOne
-	private MenuCategory category;
+	private Restaurant restaurant;
 
 	public Integer getId() {
 		return id;
@@ -35,14 +33,6 @@ public class MenuItem {
 		this.name = name;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public String getPhoto() {
 		return photo;
 	}
@@ -51,20 +41,12 @@ public class MenuItem {
 		this.photo = photo;
 	}
 
-	public Double getPrice() {
-		return price;
+	public Restaurant getRestaurant() {
+		return restaurant;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	public MenuCategory getCategory() {
-		return category;
-	}
-
-	public void setCategory(MenuCategory category) {
-		this.category = category;
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 }

@@ -12,15 +12,19 @@ var Settings = React.createClass({
     sumbitForm:function(e){
         e.preventDefault();
         const name = this.refs.nameOfRestaurant;
-        const adress = this.refs.adressOfRestaurant;
+        const adress = $('#adress').val();
         const numberOfTables = this.refs.numberOfTables;
         const description = this.refs.description;
         const settings = { name: name.value.trim(), 
-                           adress: adress.value.trim(),
+                           adress: adress,
                           numberOfTables: numberOfTables.value.trim(),
                           description: description.value.trim(),
                       };
+         
         this.props.actions.settingsChanged(settings);
+       
+
+
     },
     render: function() {
 

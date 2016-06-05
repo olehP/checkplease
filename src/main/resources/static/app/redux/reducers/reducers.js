@@ -42,6 +42,15 @@ let reducer = function (state = initialState, action) {
               description:action.val.description,
               name:action.val.name,
           }}};
+          $.ajax({
+              type: 'OPTIONS',
+              url: 'http://localhost:8080/restaurant',
+              contentType: "application/json",
+              data:JSON.stringify(res),
+              success: function(data){
+                alert(1);
+              }
+            });
            return objectAssign({},state,res);
           
           //Authentification reducer
